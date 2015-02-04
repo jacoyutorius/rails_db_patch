@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.version     = DbPatch::VERSION
   s.authors     = ["Yuto Ogi"]
   s.email       = ["jacoyutorius@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of DbPatch."
-  s.description = "TODO: Description of DbPatch."
+  s.homepage    = "https://github.com/jacoyutorius/rails_db_patch"
+  s.summary     = "Manage tool for ruby script which executed to DB only once."
+  s.description = "Manage tool for ruby script which executed to DB only once."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", ">= 4.0.0"
