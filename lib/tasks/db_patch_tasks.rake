@@ -32,17 +32,18 @@ namespace :db do
     task :execute => :environment do 
     	patches = Dir.glob("#{patch_root}/*.rb")
     	patches.each do |patch|
+
     		basename = File.basename(patch, ".rb")
+        next unless DbPatch::PatchVersion.find_by(version: basename).nil?
+    		
+        # execute script
     		require patch
 
-    		if DbPatch::PatchVersion.find_by(version: basename).nil?
-	    		DbPatch::PatchVersion.create!(
-	    			version: basename
-	    			)
-	    	end
+        DbPatch::PatchVersion.create!(
+          version: basename
+          )
 
-        p "#{basename} executed."
-	    	
+        p "#{basename}.rb executed."
     	end
     end
 
@@ -50,19 +51,6 @@ namespace :db do
     def patch_root
     	"#{Rails.root}/db/patch"
     end
-
-
-    class PatchVersion < ActiveRecord::Migration
-			def self.up
-				create_table :patch_versions do |t|
-					t.string :version
-				end
-			end
-
-			def self.down
-				drop_table :patch_versions
-			end
-		end
 
   end
 end
