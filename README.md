@@ -1,3 +1,2 @@
-= DbPatch
-
-This project rocks and uses MIT-LICENSE.
+# rails_db_patch
+Manage tool for ruby script which executed to DB only once
