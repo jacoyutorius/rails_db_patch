@@ -5,6 +5,7 @@ module DbPatch
 			def self.up
 				create_table :patch_versions do |t|
 					t.string :version
+					t.timestamps
 				end
 
 				add_index :patch_versions, :version, :unique => true

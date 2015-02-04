@@ -28,7 +28,7 @@ namespace :db do
     end
 
 
-    desc "execute path"
+    desc "execute patch"
     task :execute => :environment do 
     	patches = Dir.glob("#{patch_root}/*.rb")
     	patches.each do |patch|
