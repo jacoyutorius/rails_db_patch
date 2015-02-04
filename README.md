@@ -1,6 +1,7 @@
 # rails_db_patch
 Manage tool for one-time ruby script which executed to DB in Rails application.
 
+[![Gem Version](https://badge.fury.io/rb/db_patch.svg)](http://badge.fury.io/rb/db_patch)
 
 ## Description
 
