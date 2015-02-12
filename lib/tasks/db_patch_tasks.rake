@@ -8,8 +8,13 @@ namespace :db do
 
   	desc "initialize database"
     task :init => :environment do
-    	DbPatch::Migration::CreatePatchVersions.new.up
-    	Dir.mkdir patch_root
+
+      if ActiveRecord::Base.connection.table_exists? "patch_versions"
+        puts "patch_versions already exists."
+      else
+        DbPatch::Migration::CreatePatchVersions.new.up
+        Dir.mkdir patch_root unless Dir.exists? patch_root
+      end
     end
 
 
@@ -37,13 +42,13 @@ namespace :db do
         next unless DbPatch::PatchVersion.find_by(version: basename).nil?
     		
         # execute script
-    		require patch
+    		load patch
 
         DbPatch::PatchVersion.create!(
           version: basename
           )
 
-        p "#{basename}.rb executed."
+        puts "#{basename}.rb executed."
     	end
     end
 
