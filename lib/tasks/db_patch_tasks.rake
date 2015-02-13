@@ -21,7 +21,7 @@ namespace :db do
     desc "clear database"
     task :clear => :environment do 
     	DbPatch::Migration::CreatePatchVersions.down
-    	FileUtils.rm_rf patch_root
+      DbPatch::Migration::CreatePatchVersions.new.up
     end
 
 
