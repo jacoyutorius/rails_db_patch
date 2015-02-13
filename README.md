@@ -76,6 +76,7 @@ then, It enable to use db_patch tasks.
 $ rake -T
 rake db:patch:clear                       # clear database
 rake db:patch:execute                     # execute patch
+rake db:patch:history                   	# show patch history
 rake db:patch:init                        # initialize database
 rake db:patch:new                         # create new patch file
 ```

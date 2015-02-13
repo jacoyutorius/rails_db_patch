@@ -52,6 +52,13 @@ namespace :db do
     	end
     end
 
+    desc "show patch history"
+    task :history => :environment do 
+      DbPatch::PatchVersion.all.each do |row|
+        p "patch: #{row.version}.rb at #{row.updated_at}."
+      end
+    end
+
 
     def patch_root
     	"#{Rails.root}/db/patch"
