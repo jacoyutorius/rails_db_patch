@@ -27,6 +27,10 @@ you'll think "*I wish I can also manage one-time script also like migration file
 ### **This is it.**
 
 
+## Slide
+
+[DMLを実行するrubyスクリプトをmigrationファイルのように管理するRailsプラグインを作った](http://www.slideshare.net/YutoOgi/rails-db-patch)
+
 ## Usage
 
 First after installed, you need to initialize database.
